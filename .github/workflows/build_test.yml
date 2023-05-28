@@ -20,25 +20,15 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: Install dependencies
-        run: |
-          cd api
-          npm install
+        run: npm install
       - name: Build project
-        run: |
-          cd api
-          npm run build
+        run: npm run build
         env:
           NODE_ENV: production
-          PORT: ${{ secrets.API_PORT }}
-          MONGO_URI: ${{secrets.MONGO_URI}}
       - name: Run unit test
-        run: |
-          cd api 
-          npm run test
+        run: npm run test
       - name: Run e2e tests
-        run: |
-          cd api
-          npm run test:e2e
+        run: npm run test:e2e
  
           
           
