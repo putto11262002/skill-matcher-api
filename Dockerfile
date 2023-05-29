@@ -1,4 +1,4 @@
-FROM node:18 AS builder
+FROM --platform=linux/amd64 node:18 AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY . .
 RUN npm run build
 
 
-FROM node:18-alpine
+FROM --platform=linux/amd64 node:18-alpine
 
 WORKDIR /app
 
